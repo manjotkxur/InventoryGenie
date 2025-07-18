@@ -1,0 +1,25 @@
+.chart-card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 100%; 
+  max-width: 500px; 
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+  margin: 0 auto;
+}
+
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+  gap: 2rem; 
+  padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .charts-container {
+    flex-direction: column; 
+  }
+}

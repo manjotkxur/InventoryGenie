@@ -1,0 +1,111 @@
+.dashboard-container {
+  padding: 20px;
+  background-color: #fff0f5; 
+  min-height: 100vh;
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #b30059;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.summary-boxes {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.summary-card {
+  flex: 1;
+  background-color: #ffb6c1;
+  color: #800040;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-main {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.side-box {
+  flex: 0.3;
+  background-color: #ffe4ec;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.side-top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.side-bottom h4 {
+  margin: 0 0 8px;
+  color: #5a0033;
+}
+
+.side-bottom p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #5a0033;
+}
+
+.chart-box {
+  flex: 1;
+  background-color: #ffe4ec;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-box h4 {
+  margin-bottom: 15px;
+  color: #b30059;
+}
+
+.chart-placeholder {
+  height: 300px;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff0f5,
+    #fff0f5 10px,
+    #ffc0cb 10px,
+    #ffc0cb 20px
+  );
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #800040;
+  font-weight: bold;
+}
+
+.btn-pink {
+  background-color: #ffb6c1;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-pink:hover {
+  background-color: #c2185b;
+}

@@ -1,0 +1,28 @@
+.landing-container {
+  background-color: #ffe6ee;
+}
+
+.landing-box {
+  background-color: #f8b6c1;
+  border: 1px solid #e48ca0;
+  border-radius: 10px;
+  width: 320px;
+}
+
+.landing-btn {
+  background-color: transparent;
+  color: #b80050;
+  border: 1px solid #b80050;
+  font-weight: 500;
+}
+
+.landing-btn:hover {
+  background-color: #b80050;
+  color: white;
+}
+
+.divider {
+  font-size: 0.9rem;
+  color: #6c757d;
+  position: relative;
+}

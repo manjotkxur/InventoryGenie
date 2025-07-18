@@ -1,0 +1,30 @@
+.auth-container {
+  background-color: #ffe6f0; 
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-card{
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  background-color: #f8b6c1;
+  border: 1px solid #e48ca0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.auth-card h3 {
+  color: #d63384;
+}
+
+.btn-primary {
+  background-color: #d63384;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #c2186a;
+}

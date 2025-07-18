@@ -1,0 +1,34 @@
+.sidebar {
+  background-color: #ffc0cb;  
+  color: #5a0033;  
+  height: 100vh;  
+  width: 220px;   
+  padding: 20px;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+}
+.d-flex .flex-grow-1 {
+  margin-left: 220px;
+  padding: 20px;  
+}
+
+.navbar {
+  padding: 10px;
+  background-color: #ffffff;
+  z-index: 1000; 
+}
+
+.main-content {
+  padding: 20px;
+  background-color: #f4f4f4;
+  
+}
+.sidebar .nav-link {
+  font-weight: 800;  
+}
+
+.sidebar {
+  font-weight: 600; 
+}
