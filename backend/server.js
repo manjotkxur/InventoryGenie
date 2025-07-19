@@ -15,7 +15,7 @@ app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/suppliers', require('./routes/supplierRoutes'));
 app.use('/api/history', require('./routes/historyRoutes'));
 app.use('/api/locations', require('./routes/locationRoutes'));
-app.use('/api/movements', require('./routes/stockMovementRoutes'));
+app.use('/api/stock-movements', require('./routes/stockMovementRoutes'));
 app.use('/api/analytics', require('./routes/analyticsRoutes'));
 app.use('/api/report', require('./routes/reportRoutes'));
 app.use('/api/categories',require('./routes/categoryRoutes'));

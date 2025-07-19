@@ -1,10 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const authenticateUser = require('../middleware/authMiddleware');
-const { getAllLocations, createLocation } = require('../controllers/locationController');
+const {
+  getAllLocations,
+  createLocation,
+  updateLocation,
+  deleteLocation,
+  getLocationById,
+} = require('../controllers/locationController');
+const authenticate = require('../middleware/authMiddleware');
 
-router.use(authenticateUser);
-router.get('/', getAllLocations);
-router.post('/', createLocation);
+// GET all locations
+router.get('/', authenticate, getAllLocations);
+
+// POST a new location
+router.post('/', authenticate, createLocation);
+
+// PUT update a location by ID
+router.put('/:id', authenticate, updateLocation);
+
+// DELETE a location by ID
+router.delete('/:id', authenticate, deleteLocation);
+
+router.get('/:id', authenticate, getLocationById);
 
 module.exports = router;

@@ -1,12 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const authenticateUser = require('../middleware/authMiddleware');
-const { getAllProducts, createProduct, updateProduct, deleteProduct } = require('../controllers/productController');
+const authenticate = require('../middleware/authMiddleware');
+const {
+  getAllProducts,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+  getProductById,
+} = require('../controllers/productController');
 
-router.use(authenticateUser);
-router.get('/', getAllProducts);
-router.post('/', createProduct);
-router.put('/:id', updateProduct);
-router.delete('/:id', deleteProduct);
+// Routes with inline auth middleware
+router.get('/', authenticate, getAllProducts);
+router.post('/', authenticate, createProduct);
+router.put('/:id', authenticate, updateProduct);
+router.delete('/:id', authenticate, deleteProduct);
+router.get('/:id', authenticate, getProductById);
 
 module.exports = router;

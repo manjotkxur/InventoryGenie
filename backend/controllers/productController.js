@@ -95,9 +95,30 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+const getProductById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const result = await pool.query(
+      'SELECT * FROM products WHERE id = $1 AND user_id = $2',
+      [id, req.user.id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch product', error: err.message });
+  }
+};
+
+
 module.exports = {
   createProduct,
   getAllProducts,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  getProductById,
 };

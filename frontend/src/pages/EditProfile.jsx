@@ -93,7 +93,13 @@ const EditProfile = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-success" disabled={loading}>
+        <button
+  type="submit"
+  className="btn"
+  style={{ backgroundColor: '#ff69b4', color: 'white' }}
+  disabled={loading}
+>
+
           {loading ? 'Updating...' : 'Update Profile'}
         </button>
       </form>

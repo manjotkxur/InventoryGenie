@@ -25,18 +25,20 @@ const Analytics = () => {
   return (
     <div className="container my-4">
       <h2 className="mb-4">ANALYTICS</h2>
-      <div className="row">
-        {currentCharts.map(chart => (
-          <AnalyticsBlock
-            key={chart.id}
-            chartType={chart.chartType}
-            fetchUrl={chart.fetchUrl}
-            xKey={chart.xKey}
-            yKeys={chart.yKeys}
-            title={chart.title}
-          />
-        ))}
-      </div>
+<div className="row">
+  {currentCharts.map(chart => (
+    <div key={chart.id} className="col-md-6 mb-4">
+      <AnalyticsBlock
+        chartType={chart.chartType}
+        fetchUrl={chart.fetchUrl}
+        xKey={chart.xKey}
+        yKeys={chart.yKeys}
+        title={chart.title}
+      />
+    </div>
+  ))}
+</div>
+
 
       <div className="d-flex justify-content-between align-items-center mt-4">
         <button

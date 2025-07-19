@@ -3,15 +3,13 @@ import { getDashboardSummary } from "../api/getDashboardSummary";
 import AnalyticsCharts from "../components/analytics/AnalyticsCharts";
 import "../css/dashboard.css";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
+
 const Dashboard = () => {
   const [summary, setSummary] = useState(null);
-  const { user, accesstoken, loading, isAuthenticated } = useAuth(); 
-  console.log('[Dashboard.jsx] useAuth:', {
-    user,
-    accesstoken,
-    loading,
-    isAuthenticated,
-  });
+  const { user, accesstoken, loading, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       const data = await getDashboardSummary();
@@ -34,9 +32,12 @@ const Dashboard = () => {
       <div className="dashboard-main">
         <div className="side-box">
           <div className="side-top">
-            <button className="btn-pink">My Profile</button>
-            <button className="btn-pink">Edit Profile</button>
+            <button className="btn-pink"  onClick={() => navigate('/profile')}>My Profile</button>
+            <button className="btn-pink" onClick={() => navigate('/edit-profile')}>Edit Profile</button>
+            <button className="btn-pink" onClick={() => navigate("/update-inventory")}>Update Inventory</button>
+            <button className="btn-pink" onClick={() => navigate("/explore-inventory")}>Explore Inventory</button>
           </div>
+
           <div className="side-bottom">
             <h4>Total Inventory Value</h4>
             <p>₹{summary?.totalInventoryValue}</p>

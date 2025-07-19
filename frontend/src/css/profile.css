@@ -1,0 +1,36 @@
+.profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.profile-card {
+  background-color: #fff;
+  padding: 30px 40px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+  max-width: 400px;
+  width: 100%;
+}
+
+.profile-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card h2 {
+  margin-bottom: 20px;
+  color: #d63384; /* Pinkish */
+}
+
+.profile-card p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.profile-card strong {
+  color: #555;
+}

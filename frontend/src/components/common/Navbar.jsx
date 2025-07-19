@@ -12,10 +12,7 @@ const Navbar = () => {
 
         {isAuthenticated && (
           <div className="d-flex align-items-center ms-auto">
-            <span className="text-white me-3">
-              <i className="bi bi-person-circle me-1"></i>
-              {user?.name || 'User'}
-            </span>
+            
             <button className="btn btn-outline-light btn-sm" onClick={logout}>
               <i className="bi bi-box-arrow-right me-1"></i> Logout
             </button>

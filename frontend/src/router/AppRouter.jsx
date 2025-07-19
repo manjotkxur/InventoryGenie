@@ -11,7 +11,8 @@ import Login from '../pages/Login';
 import Landing from '../pages/Landing';
 import Profile from '../pages/Profile';
 import EditProfile from '../pages/EditProfile';
-
+import ExploreInventory from "../pages/ExploreInventory";
+import UpdateInventory from "../pages/UpdateInventory";
 const AppRouter = () => {
   return (
     <Routes>
@@ -22,6 +23,8 @@ const AppRouter = () => {
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
           <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="/explore-inventory" element={<ExploreInventory />} />
+          <Route path="/update-inventory" element={<UpdateInventory />} />
           <Route path="report" element={<ReportPage />} />
           <Route path="analytics" element={<AnalyticsPage />} />
           <Route path="profile" element={<Profile />} />
