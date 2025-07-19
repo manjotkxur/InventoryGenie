@@ -1,6 +1,5 @@
 const pool = require('../db');
 
-// GET /api/suppliers
 const getAllSuppliers = async (req, res) => {
   try {
     const result = await pool.query(`
@@ -18,7 +17,6 @@ const getAllSuppliers = async (req, res) => {
   }
 };
 
-// POST /api/suppliers
 const createSupplier = async (req, res) => {
   const { name, contact_email, phone, location_ids } = req.body;
   const userId = req.user.id;
@@ -47,14 +45,12 @@ const createSupplier = async (req, res) => {
   }
 };
 
-// PUT /api/suppliers/:id
 const updateSupplier = async (req, res) => {
   const { id } = req.params;
   const { name, contact_email, phone, location_ids } = req.body;
   const userId = req.user.id;
 
   try {
-    // Update supplier basic details
     const result = await pool.query(
       `UPDATE suppliers 
        SET name = $1, contact_email = $2, phone = $3 
@@ -69,10 +65,8 @@ const updateSupplier = async (req, res) => {
 
     const supplier = result.rows[0];
 
-    // Clear existing supplier-location mappings
     await pool.query('DELETE FROM supplier_locations WHERE supplier_id = $1', [id]);
 
-    // Insert new location mappings
     if (Array.isArray(location_ids)) {
       const inserts = location_ids.map(locId =>
         pool.query(
@@ -89,16 +83,13 @@ const updateSupplier = async (req, res) => {
   }
 };
 
-// DELETE /api/suppliers/:id
 const deleteSupplier = async (req, res) => {
   const { id } = req.params;
   const userId = req.user.id;
 
   try {
-    // Delete supplier-location mappings first
     await pool.query('DELETE FROM supplier_locations WHERE supplier_id = $1', [id]);
 
-    // Then delete the supplier
     const result = await pool.query(
       'DELETE FROM suppliers WHERE id = $1 AND user_id = $2 RETURNING *',
       [id, userId]

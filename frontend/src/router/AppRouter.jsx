@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from '../components/common/Layout';
 import NotFound from '../components/common/NotFound';
 import ProtectedRoute from '../components/common/ProtectedRoute';
-
+import AIQuery from '../pages/AIQuery'
 import DashboardPage from '../pages/Dashboard';
 import ReportPage from '../pages/Report';
 import AnalyticsPage from '../pages/Analytics';
@@ -25,6 +25,7 @@ const AppRouter = () => {
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="/explore-inventory" element={<ExploreInventory />} />
           <Route path="/update-inventory" element={<UpdateInventory />} />
+          <Route path="/ai-query" element={<AIQuery />} />
           <Route path="report" element={<ReportPage />} />
           <Route path="analytics" element={<AnalyticsPage />} />
           <Route path="profile" element={<Profile />} />

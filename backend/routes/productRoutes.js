@@ -9,7 +9,7 @@ const {
   getProductById,
 } = require('../controllers/productController');
 
-// Routes with inline auth middleware
+
 router.get('/', authenticate, getAllProducts);
 router.post('/', authenticate, createProduct);
 router.put('/:id', authenticate, updateProduct);

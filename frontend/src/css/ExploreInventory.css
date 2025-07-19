@@ -1,8 +1,7 @@
-/* frontend/src/css/ExploreInventory.css */
 
 .explore-container {
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #fff0f5;
   min-height: 100vh;
 }
 
@@ -71,7 +70,6 @@
   background-color: #ff85c1;
 }
 
-/* Table Styling */
 .explore-table {
   width: 100%;
   border-collapse: collapse;

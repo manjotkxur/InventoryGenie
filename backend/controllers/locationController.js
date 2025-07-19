@@ -1,6 +1,5 @@
 const pool = require('../db');
 
-// GET /api/locations
 const getAllLocations = async (req, res) => {
   try {
     const result = await pool.query(
@@ -13,7 +12,6 @@ const getAllLocations = async (req, res) => {
   }
 };
 
-// POST /api/locations
 const createLocation = async (req, res) => {
   const { name } = req.body;
 
@@ -32,7 +30,6 @@ const createLocation = async (req, res) => {
   }
 };
 
-// PUT /api/locations/:id
 const updateLocation = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
@@ -57,7 +54,6 @@ const updateLocation = async (req, res) => {
   }
 };
 
-// DELETE /api/locations/:id
 const deleteLocation = async (req, res) => {
   const { id } = req.params;
 

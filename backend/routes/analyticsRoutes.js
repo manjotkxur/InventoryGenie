@@ -9,7 +9,7 @@ router.get('/total-products', analyticsController.getTotalProducts);
 router.get('/total-categories', analyticsController.getTotalCategories);
 router.get('/total-suppliers', analyticsController.getTotalSuppliers);
 router.get('/total-locations', analyticsController.getTotalLocations);
-router.get('/getDashboardSummary', analyticsController.getDashboardSummary); //for dashboard
+router.get('/getDashboardSummary', analyticsController.getDashboardSummary); 
 
 router.get('/stock-per-product', analyticsController.getStockPerProduct);
 router.get('/stock-per-category', analyticsController.getStockPerCategory);

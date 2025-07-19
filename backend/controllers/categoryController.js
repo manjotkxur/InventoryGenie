@@ -1,6 +1,5 @@
 const pool = require('../db');
 
-// GET /api/categories
 const getAllCategories = async (req, res) => {
   try {
     const result = await pool.query('SELECT id, name FROM categories ORDER BY name');
@@ -11,7 +10,6 @@ const getAllCategories = async (req, res) => {
   }
 };
 
-// POST /api/categories
 const createCategory = async (req, res) => {
   const { name } = req.body;
 
@@ -31,7 +29,6 @@ const createCategory = async (req, res) => {
   }
 };
 
-// PUT /api/categories/:id
 const updateCategory = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
@@ -57,7 +54,6 @@ const updateCategory = async (req, res) => {
   }
 };
 
-// DELETE /api/categories/:id
 const deleteCategory = async (req, res) => {
   const { id } = req.params;
 

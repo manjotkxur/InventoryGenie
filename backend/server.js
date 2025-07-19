@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+
 require('dotenv').config();
 
 const app = express();
@@ -19,7 +20,7 @@ app.use('/api/stock-movements', require('./routes/stockMovementRoutes'));
 app.use('/api/analytics', require('./routes/analyticsRoutes'));
 app.use('/api/report', require('./routes/reportRoutes'));
 app.use('/api/categories',require('./routes/categoryRoutes'));
-
+app.use('/api/ai',require('./routes/aiRoutes'));
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);

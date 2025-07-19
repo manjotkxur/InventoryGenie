@@ -23,7 +23,6 @@ const {
 } = require('../services/analytics/charts');
 
 
-// ✅ All wrapped as Express-safe handlers
 module.exports = {
   getTotalProducts: async (req, res) => {
     try {
@@ -184,7 +183,7 @@ getDashboardSummary: async (req, res) => {
     console.log('📊 DASHBOARD SUMMARY:', summary);
     res.json(summary);
   } catch (err) {
-    console.error('❌ Error in getDashboardSummary:', err.message);
+    console.error('Error in getDashboardSummary:', err.message);
     res.status(500).json({ message: 'Failed to fetch dashboard summary' });
   }
 },
@@ -198,21 +197,19 @@ getDashboardSummary: async (req, res) => {
     }
   },
 
-  // Controller for Bar Chart: Top-Selling Products
   getTopSellingProducts: async (req, res) => {
     try {
-      const data = await getTopSellingProducts(req.user.id);  // Calls business logic from charts.js
-      res.json(data);  // Sends the data to the client
+      const data = await getTopSellingProducts(req.user.id);
+      res.json(data); 
     } catch (err) {
       res.status(500).json({ error: 'Failed to get top-selling products', detail: err.message });
     }
   },
 
-  // Controller for Line Chart: Monthly Sales Growth
   getMonthlySalesGrowth: async (req, res) => {
     try {
-      const data = await getMonthlySalesGrowth(req.user.id);  // Calls business logic from charts.js
-      res.json(data);  // Sends the data to the client
+      const data = await getMonthlySalesGrowth(req.user.id);  
+      res.json(data); 
     } catch (err) {
       res.status(500).json({ error: 'Failed to get monthly sales growth', detail: err.message });
     }

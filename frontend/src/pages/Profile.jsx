@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
-import "../css/profile.css"; // Ensure correct path
+import "../css/profile.css";
 
 const Profile = () => {
   const { accesstoken } = useAuth();

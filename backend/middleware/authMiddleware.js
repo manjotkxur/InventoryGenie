@@ -17,7 +17,7 @@ const authenticateUser = (req, res, next) => {
   } catch (err) {
     if (err.name === 'TokenExpiredError') {
       console.error('Token expired — returning 401 to trigger refresh');
-      return res.status(401).json({ message: 'Token expired' }); // ✅ Change this
+      return res.status(401).json({ message: 'Token expired' }); 
     }
 
     console.error(' Token verification failed:', err.message);

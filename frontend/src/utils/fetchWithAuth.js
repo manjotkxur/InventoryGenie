@@ -6,7 +6,6 @@ export const fetchWithAuth = async (url, options = {}, login, logout) => {
   logout?.();
   return new Response(null, { status: 401, statusText: 'Token missing or malformed' });
 }
-  console.log('📦 Initial access token:', token);
 
   let res = await fetch(url, {
     ...options,
@@ -21,7 +20,7 @@ export const fetchWithAuth = async (url, options = {}, login, logout) => {
   console.log(`🔁 Response from ${url}:`, res.status);
 
   if (res.status === 401) {
-    console.warn('🔐 Access token expired or invalid. Attempting refresh...');
+    console.warn('Access token expired or invalid. Attempting refresh...');
 
     try {
       const refreshRes = await fetch('http://localhost:5000/api/users/refresh-token', {

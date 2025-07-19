@@ -1,6 +1,5 @@
 const pool = require('../db');
 
-// Create a stock movement
 const createStockMovement = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -44,7 +43,6 @@ const createStockMovement = async (req, res) => {
   }
 };
 
-// Get all stock movements
 const getAllStockMovements = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -65,7 +63,6 @@ const getAllStockMovements = async (req, res) => {
   }
 };
 
-// Get a single stock movement
 const getStockMovementById = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -86,7 +83,6 @@ const getStockMovementById = async (req, res) => {
   }
 };
 
-// Update a stock movement
 const updateStockMovement = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -124,7 +120,6 @@ const updateStockMovement = async (req, res) => {
   }
 };
 
-// Delete a stock movement
 const deleteStockMovement = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -146,7 +141,6 @@ const deleteStockMovement = async (req, res) => {
   }
 };
 
-// Get current stock for a product
 const getCurrentStock = async (req, res) => {
   try {
     const userId = req.user.id;

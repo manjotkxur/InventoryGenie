@@ -1,4 +1,3 @@
-// File: src/pages/Report.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import ReportFilters from "../components/report/ReportFilters";
@@ -8,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 import "../css/report.css";
 
 const Report = () => {
-const { user, accesstoken } = useAuth(); // ✅ Hook inside the component
+const { user, accesstoken } = useAuth(); 
   console.log("[Report] Auth User:", user);
   console.log("[Report] Access Token:", accesstoken);
 
@@ -16,7 +15,7 @@ const { user, accesstoken } = useAuth(); // ✅ Hook inside the component
     location: [],
     supplier: [],
     category: [],
-    groupBy: "product", // Needed for export groupings
+    groupBy: "product",
   });
 
   const [reportData, setReportData] = useState([]);

@@ -1,0 +1,152 @@
+.aiquery-container {
+  padding: 20px;
+  background-color: #fff0f5;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.aiquery-title {
+  text-align: center;
+  color: #b30059;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.aiquery-placeholder {
+  font-style: italic;
+  color: #7a0040;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.aiquery-error {
+  color: grey;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.aiquery-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.aiquery-chatbox {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.aiquery-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 2px solid #ffc0cb;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #800040;
+  transition: border 0.2s ease;
+}
+
+.aiquery-input:focus {
+  outline: none;
+  border-color: #ff69b4;
+}
+
+.btn-pink {
+  background-color: #ffb6c1;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-pink:hover {
+  background-color: #c2185b;
+}
+
+.aiquery-result {
+  background-color: #ffe4ec;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.aiquery-response {
+  margin-bottom: 20px;
+}
+
+.aiquery-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #5a0033;
+}
+
+.aiquery-output {
+  background-color: #fff;
+  color: #800040;
+  padding: 14px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  border: 1px solid #ffc0cb;
+  overflow-x: auto;
+}
+
+.aiquery-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.aiquery-table th,
+.aiquery-table td {
+  padding: 12px 16px;
+  border: 1px solid #ffd6e8;
+  text-align: left;
+  color: #800040;
+  font-size: 0.95rem;
+}
+
+.aiquery-table th {
+  background-color: #ffc0cb;
+  color: #5a0033;
+  font-weight: bold;
+}
+
+.aiquery-container select,
+.aiquery-container input[type="date"] {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  width: 240px; 
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
+.aiquery-container select:focus,
+.aiquery-container input[type="date"]:focus {
+  outline: none;
+  border-color: #ff69b4;
+}
