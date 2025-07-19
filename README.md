@@ -31,7 +31,7 @@ Inventino is a full-stack inventory management app built with the **PERN stack**
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/manjotkxur/inventoryGenie.git
+git clone https://github.com/manjotkxur/InventoryGenie.git
 ```
 
 ### 2. Environment Setup
@@ -41,8 +41,8 @@ Create a `.env` file in `backend/`:
 DATABASE_URL=your_postgres_connection_string
 JWT_SECRET=your_jwt_secret
 NODE_ENV=development
-DATABASE_URL
-PORT
+DATABASE_URL=your_postgreSQL_URL
+PORT=xxxx
 ```
 
 ### 3. Install Dependencies
