@@ -1,37 +1,41 @@
-
 .explore-container {
   padding: 20px;
   background-color: #fff0f5;
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .explore-title {
   font-size: 28px;
   font-weight: bold;
-  color: rgb(143, 2, 63)e8c;
+  color: rgb(143, 2, 63);
   margin-bottom: 20px;
   text-align: center;
 }
 
 .explore-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 20px;
   margin-bottom: 40px;
+  align-items: center;
 }
 
 .explore-card {
-  background-color: #fff;
-  border: 2px solid #ffd6e8;
+  width: 100%;
+  max-width: 600px;
+  background-color: #f9fbfe; /* very light blue */
+  border: 2px solid #d6e4ff; /* lightest blue border */
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(214, 228, 255, 0.4); /* subtle blue shadow */
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .explore-card:hover {
-  border-color: #ff69b4;
-  box-shadow: 0 4px 16px rgba(255, 105, 180, 0.2);
+  border-color: #a6c1ff; /* soft blue on hover */
+  box-shadow: 0 4px 16px rgba(166, 193, 255, 0.4); /* gentle blue shadow */
 }
 
 .explore-card-title {
@@ -43,31 +47,33 @@
 
 .card-form {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .card-form input {
   width: 100%;
-  padding: 8px 10px;
-  margin-bottom: 10px;
+  padding: 10px 14px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  font-size: 16px;
 }
 
 .card-form button {
   width: 100%;
-  background-color: #ff69b4;
+  background-color: #ff69b4; /* pink buttons */
   color: white;
-  padding: 8px 10px;
+  padding: 10px 16px;
   border: none;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  margin-bottom: 3px;
   transition: background-color 0.3s ease;
 }
 
 .card-form button:hover {
-  background-color: #ff85c1;
+  background-color: #ff85c1; /* lighter pink hover */
 }
 
 .explore-table {
@@ -88,11 +94,11 @@
 }
 
 .explore-table th {
-  background-color: #ffd6e8;
+  background-color: #d6e4ff; /* light blue header */
   color: #333;
   font-weight: bold;
 }
 
 .explore-table tbody tr:hover {
-  background-color: #fff0f5;
+  background-color: #f9fbfe; /* subtle light blue row hover */
 }

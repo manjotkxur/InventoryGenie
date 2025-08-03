@@ -19,7 +19,7 @@ const ExploreInventory = () => {
     category: "http://localhost:5000/api/categories",
     supplier: "http://localhost:5000/api/suppliers",
     location: "http://localhost:5000/api/locations",
-    stockmovement: "http://localhost:5000/api/stock",
+    stockmovement: "http://localhost:5000/api/stock-movements",
   };
 
   const [expandedCard, setExpandedCard] = useState(null);
