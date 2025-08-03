@@ -10,9 +10,11 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users/me", {
+        console.log("Access token used:", accesstoken); 
+        const res = await axios.get("http://localhost:5000/api/users/profile", {
           headers: { Authorization: `Bearer ${accesstoken}` }
         });
+        console.log("Received user data:", res.data); 
         setUser(res.data);
       } catch (err) {
         console.error("Error fetching profile:", err);

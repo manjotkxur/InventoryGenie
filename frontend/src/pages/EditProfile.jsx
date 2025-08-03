@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const EditProfile = () => {
-  const { user, accesstoken, login, logout } = useAuth();
+  const { accesstoken, login } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: user?.name || '',
-    email: user?.email || '',
+    name: '',
+    email: '',
     password: '',
   });
 
@@ -16,39 +16,63 @@ const EditProfile = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/api/users/me', {
+          headers: { Authorization: `Bearer ${accesstoken}` },
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || 'Failed to fetch profile');
+
+        setFormData({
+          name: data.name || '',
+          email: data.email || '',
+          password: '',
+        });
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchProfile();
+  }, [accesstoken]);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-    setSuccess('');
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setError('');
+  setSuccess('');
 
-    try {
-      const res = await fetch('http://localhost:5000/api/user/update', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${accesstoken}`,
-        },
-        credentials: 'include',
-        body: JSON.stringify(formData),
-      });
+  try {
+    const res = await fetch('http://localhost:5000/api/user/update', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accesstoken}`,
+      },
+      credentials: 'include',
+      body: JSON.stringify(formData),
+    });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || 'Update failed');
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || 'Update failed');
 
-      login(data.accesstoken); 
-      setSuccess('Profile updated successfully');
-      navigate('/profile');
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+    login(accesstoken, data.user);
+    setSuccess('Profile updated successfully');
+    navigate('/profile');
+  } catch (err) {
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="container mt-4">
@@ -66,6 +90,7 @@ const EditProfile = () => {
             value={formData.name}
             onChange={handleChange}
             required
+            placeholder="Leave blank to keep current name"
           />
         </div>
 
@@ -94,12 +119,11 @@ const EditProfile = () => {
         </div>
 
         <button
-  type="submit"
-  className="btn"
-  style={{ backgroundColor: '#ff69b4', color: 'white' }}
-  disabled={loading}
->
-
+          type="submit"
+          className="btn"
+          style={{ backgroundColor: '#ff69b4', color: 'white' }}
+          disabled={loading}
+        >
           {loading ? 'Updating...' : 'Update Profile'}
         </button>
       </form>
