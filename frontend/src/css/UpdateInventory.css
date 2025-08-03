@@ -7,20 +7,21 @@
 
 .update-inventory-title {
   text-align: center;
-  color: #333;
+  color: rgb(143, 2, 63) !important;
   margin-bottom: 30px;
   font-size: 28px;
 }
 
 .card-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: 20px;
 }
 
 .update-card {
-  flex: 0 0 280px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
   border: 2px solid #dee2e6;
   border-radius: 10px;
   background-color: #fff;
@@ -43,8 +44,16 @@
 }
 
 .card-body {
-  padding: 16px 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 20px;
   background-color: #fff;
+}
+
+.update-card.expanded .card-body {
+  max-height: 1000px;
+  padding: 16px 20px;
 }
 
 .card-body form {
@@ -53,7 +62,9 @@
   gap: 12px;
 }
 
-.card-body input[type="text"] {
+.card-body input[type="text"],
+.card-body input[type="number"],
+.card-body select {
   padding: 10px 14px;
   border-radius: 6px;
   border: 1px solid #ced4da;

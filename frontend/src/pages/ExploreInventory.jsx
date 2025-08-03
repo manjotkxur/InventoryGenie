@@ -107,7 +107,7 @@ const ExploreInventory = () => {
 
   return (
     <div className="explore-container">
-      <h2 className="explore-title">Explore Inventory</h2>
+      <h2 className="explore-title">EXPLORE INVENTORY</h2>
       <div className="explore-card-grid">
         {cards.map((card, index) => (
           <div className="explore-card" key={index} onClick={() => toggleCard(card.key)}>

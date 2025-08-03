@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getDashboardSummary } from "../api/getDashboardSummary";
 import "../css/UpdateInventory.css";
 import { useAuth } from "../context/AuthContext";
+import  formFields  from "../api/formConfig";
+import DynamicForm from "../components/CRUDform/DynamicForm";
 
 const UpdateInventory = () => {
   const [summary, setSummary] = useState({});
@@ -40,21 +42,19 @@ const UpdateInventory = () => {
 
   return (
     <div className="update-inventory-container">
-      <h2 className="update-inventory-title">Update Inventory</h2>
+      <h2 className="update-inventory-title">UPDATE INVENTORY</h2>
       <div className="card-grid">
         {cards.map(({ id, title }) => (
           <div key={id} className={`update-card ${expandedCard === id ? "expanded" : ""}`}>
             <div className="card-header" onClick={() => toggleCard(id)}>
               {title}
             </div>
-            {expandedCard === id && (
-              <div className="card-body">
-                <form>
-                  <input type="text" placeholder="Enter details..." />
-                  <button type="submit">Submit</button>
-                </form>
-              </div>
-            )}
+            {expandedCard === id && formFields[id] && (
+  <div className="card-body">
+    <DynamicForm actionType={id} />
+  </div>
+)}
+            
           </div>
         ))}
       </div>

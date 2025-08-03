@@ -180,7 +180,7 @@ module.exports = {
 getDashboardSummary: async (req, res) => {
   try {
     const summary = await getDashboardSummary(req.user.id);
-    console.log('📊 DASHBOARD SUMMARY:', summary);
+    console.log('DASHBOARD SUMMARY:', summary);
     res.json(summary);
   } catch (err) {
     console.error('Error in getDashboardSummary:', err.message);

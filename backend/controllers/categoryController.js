@@ -11,16 +11,20 @@ const getAllCategories = async (req, res) => {
 };
 
 const createCategory = async (req, res) => {
-  const { name } = req.body;
+  const { name, user_id } = req.body;
 
   if (!name || name.trim() === '') {
     return res.status(400).json({ message: 'Category name is required' });
   }
 
+  if (!user_id) {
+    return res.status(400).json({ message: 'User ID is required' });
+  }
+
   try {
     const result = await pool.query(
-      'INSERT INTO categories (name) VALUES ($1) RETURNING id, name',
-      [name.trim()]
+      'INSERT INTO categories (name, user_id) VALUES ($1, $2) RETURNING id, name, user_id',
+      [name.trim(), user_id]
     );
     res.status(201).json(result.rows[0]);
   } catch (error) {
@@ -28,6 +32,7 @@ const createCategory = async (req, res) => {
     res.status(500).json({ message: 'Failed to create category' });
   }
 };
+
 
 const updateCategory = async (req, res) => {
   const { id } = req.params;
