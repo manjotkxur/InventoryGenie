@@ -118,19 +118,54 @@ addLocation: [
     { name: 'id', label: 'Location ID', type: 'number', required: true }
   ],
 
-  addStockMovement: [
-    { name: 'product_id', label: 'Product ID', type: 'number', required: true },
-    { name: 'location_id', label: 'Location ID', type: 'number', required: true },
-    { name: 'quantity', label: 'Quantity', type: 'number', required: true },
-    { name: 'movement_type', label: 'Movement Type', type: 'select', required: true, options: [
-      { label: 'IN', value: 'IN' },
-      { label: 'OUT', value: 'OUT' }
-    ]}
+addStock: [
+    {
+      name: "product_id",
+      label: "Product",
+      type: "text", // changed from 'select'
+      fetchOptions: "getProducts",
+      required: true,
+    },
+    {
+      name: "quantity",
+      label: "Quantity",
+      type: "number",
+      required: true,
+    },
+    {
+      name: "movement_type",
+      label: "Movement Type",
+      type: "select",
+      required: true,
+      options: [
+        { id: "in", name: "In" },
+        { id: "out", name: "Out" },
+      ],
+    },
+    {
+      name: "location_id",
+      label: "Location",
+      type: "select",
+      fetchOptions: "getLocations",
+      required: false,
+    },
+    {
+      name: "note",
+      label: "Note",
+      type: "text",
+      required: false,
+    },
   ],
 
-  deleteStockMovement: [
-    { name: 'id', label: 'Stock Movement ID', type: 'number', required: true }
-  ]
+  deleteStock: [
+    {
+      name: "id",
+      label: "Stock Movement ID",
+      type: "number",
+      required: true,
+    },
+],
+
 };
 
 export default formConfig;

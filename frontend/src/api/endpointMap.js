@@ -60,7 +60,7 @@ const endpointMap = {
     url: "/api/stock-movements",
   },
 
-  // ✅ GET endpoints for dynamic dropdowns
+
   getCategories: {
     method: "GET",
     url: "/api/categories"

@@ -10,8 +10,7 @@ const DynamicForm = ({ actionType, itemId = null }) => {
   const [loading, setLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const { accesstoken, user } = useAuth(); // Access user ID here
-
+  const { accesstoken, user } = useAuth();
   const fields = formFields[actionType] || [];
 
   useEffect(() => {
@@ -74,8 +73,8 @@ const DynamicForm = ({ actionType, itemId = null }) => {
       method === 'PUT' || method === 'DELETE' ? `${url}/${effectiveId}` : url;
 
     if ((method === 'PUT' || method === 'DELETE') && !effectiveId) {
-      setSubmitStatus('Failed');
       console.error('No ID provided for update/delete operation');
+      setSubmitStatus('Failed');
       setLoading(false);
       return;
     }
@@ -119,7 +118,27 @@ const DynamicForm = ({ actionType, itemId = null }) => {
       {fields.map((field) => (
         <div key={field.name}>
           <label>{field.label}</label>
-          {field.type === 'select' ? (
+
+          {field.name === 'product_id' ? (
+            <>
+              <input
+                type="text"
+                name={field.name}
+                value={formData[field.name] || ''}
+                onChange={handleChange}
+                list={`suggestions-${field.name}`}
+                required={field.required}
+              />
+              <datalist id={`suggestions-${field.name}`}>
+                {Array.isArray(selectOptions[field.name]) &&
+                  selectOptions[field.name].map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.name}
+                    </option>
+                  ))}
+              </datalist>
+            </>
+          ) : field.type === 'select' ? (
             <select
               name={field.name}
               value={formData[field.name] || ''}
@@ -127,7 +146,13 @@ const DynamicForm = ({ actionType, itemId = null }) => {
               required={field.required}
             >
               <option value="">-- Select --</option>
-              {Array.isArray(selectOptions[field.name])
+              {field.options && Array.isArray(field.options)
+                ? field.options.map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.name}
+                    </option>
+                  ))
+                : Array.isArray(selectOptions[field.name])
                 ? selectOptions[field.name].map((option) => (
                     <option key={option.id} value={option.id}>
                       {option.name}
