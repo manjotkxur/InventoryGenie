@@ -1,6 +1,6 @@
 # 🧠 InventoryGenie – Inventory Management System - FullStack
 
-InventoryGenie is a full-stack inventory management app built with the **PERN stack** (PostgreSQL, Express, React, Node.js), designed to help users manage products, suppliers, stock movements, and more with ease — including an AI-powered query system (API + NLP + LLM).
+InventoryGenie is a full-stack inventory management system tracker built with the **PERN stack** (PostgreSQL, Express, React, Node.js), designed to help users manage products, suppliers, stock movements, and more with ease — including an AI-powered query system (API + NLP + LLM).
 
 ---
 
